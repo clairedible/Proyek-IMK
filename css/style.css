@@ -47,6 +47,7 @@ body {
   min-height: 100vh;
   /* Latar biru dengan sapuan putih di pojok (seperti di Figma) */
   background:
+    url("../assets/b1f88.svg") center / cover no-repeat,
     radial-gradient(55% 45% at 0% 100%, rgba(234, 242, 251, 0.95) 0%, rgba(234, 242, 251, 0) 70%),
     radial-gradient(40% 40% at 100% 0%, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 70%),
     linear-gradient(160deg, #0174e0 0%, #0262c4 55%, #01529f 100%);
@@ -574,7 +575,14 @@ td.kosong { color: var(--abu-teks); padding: 24px; cursor: default; }
 
 .judul-kecil { font-weight: 500; margin-bottom: 2px; }
 
-/* Poster contoh (dibuat dengan CSS, menggantikan gambar desain) */
+/* Poster hasil desain (gambar asli dari Figma) */
+.poster-gambar {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .poster {
   position: relative;
   height: 210px;

@@ -78,16 +78,22 @@ function buatBadge(status) {
   return '<span class="badge ' + s.warna + '"><i class="ik ' + s.ikon + '"></i>' + status + "</span>";
 }
 
-// HTML poster contoh (menggantikan gambar desain)
+// Gambar hasil desain sesuai judul (aset Figma)
+function gambarPoster(judul) {
+  const t = (judul || "").toLowerCase();
+  if (t.includes("rekrut") || t.includes("magang")) return "1082f.png";
+  if (t.includes("workshop")) return "preview-workshop.svg";
+  if (t.includes("seminar")) return "preview-seminar.svg";
+  if (t.includes("donasi")) return "preview-donasi.svg";
+  if (t.includes("festival")) return "preview-festival.svg";
+  return "preview-generic.svg";
+}
+
 function buatPoster(judul) {
+  const src = gambarPoster(judul);
   return (
     '<div class="poster">' +
-      '<span class="poster-tag">HMDTIF</span>' +
-      '<div class="poster-kartu">' +
-        "<small>Saatnya Bergabung!</small>" +
-        "<strong>" + aman(judul) + "</strong>" +
-        "<em>HMDTIF 2026</em>" +
-      "</div>" +
+      '<img class="poster-gambar" src="assets/' + src + '" alt="Hasil desain: ' + aman(judul) + '">' +
     "</div>"
   );
 }
