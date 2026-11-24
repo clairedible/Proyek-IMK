@@ -393,7 +393,7 @@ function renderTinjau() {
   });
 
   $("badge-kuota").innerHTML =
-    '<span class="badge b-merah">' + ikonSvg("i-ok") + " Sisa Kuota Revisi : " + r.kuota + "x</span>";
+    '<span class="badge b-merah"><i class="ik ik-50"></i> Sisa Kuota Revisi : ' + r.kuota + "x</span>";
 
   // Tombol aktif hanya saat status "Pengecekan Hasil"
   const bisaTinjau = (r.status === "Pengecekan Hasil");

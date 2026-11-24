@@ -126,6 +126,8 @@ button { font-family: inherit; }
 .kartu-peran small { font-size: 11.5px; }
 .kartu-peran em { font-style: normal; font-size: 12px; margin-top: 4px; }
 
+.lingkaran .ic { width: 28px; height: 28px; }
+
 .lingkaran {
   width: 44px; height: 44px;
   border-radius: 50%;
@@ -209,6 +211,7 @@ button { font-family: inherit; }
 
 .menu-item:hover { background: var(--biru-50); }
 .menu-item.aktif { background: var(--biru-600); color: #fff; }
+.menu-item.aktif .ic { filter: brightness(0) invert(1); }
 
 /* Header */
 .kolom-kanan { min-width: 0; }
@@ -479,6 +482,7 @@ input[readonly] { background: #fafafc; }
 .chip.aktif { background: var(--biru-600); color: #fff; }
 
 .tabel-wrap {
+  margin-bottom: 12px;
   overflow-x: auto; /* tabel bisa digeser kalau layar sempit */
   border: 1px solid var(--biru-300);
   border-radius: 10px;
@@ -533,7 +537,7 @@ td.kosong { color: var(--abu-teks); padding: 24px; cursor: default; }
 .b-oranye { background: var(--oranye-50); border-color: var(--oranye-400); }
 .b-hijau { background: var(--hijau-50); border-color: var(--hijau-500); }
 .b-merah { background: var(--merah-300); border-color: var(--merah-800); color: #fff; }
-.b-merah .ic { --cek: var(--merah-300); } /* centang merah di dalam lingkaran putih */
+.b-merah .ik-50 { border-color: #fff; background: conic-gradient(#fff 0 50%, transparent 0); }
 
 /* Ikon lingkaran di badge */
 .ik {
