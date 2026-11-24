@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request Desain · InfoKom HMDTIF</title>
+  <link rel="icon" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-halaman="status">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <!-- Ikon asli dari file Figma -->
+    <symbol id="logo" viewBox="0 0 56 51"><image href="assets/69146.svg" width="56" height="51"/></symbol>
+
+    <symbol id="i-phone" viewBox="0 0 24 24"><image href="assets/54fbe.svg" width="24" height="24"/></symbol>
+    <symbol id="i-clip" viewBox="0 0 24 24"><image href="assets/e0886.svg" width="24" height="24"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><image href="assets/e6d93.svg" width="24" height="24"/></symbol>
+    <symbol id="i-tasks" viewBox="0 0 24 24"><image href="assets/5f177.svg" width="24" height="24"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><image href="assets/1b2ef.svg" width="24" height="24"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><image href="assets/fa01b.svg" width="24" height="24"/></symbol>
+
+    <!-- Ikon peran (Pilih Peran) -->
+    <symbol id="i-doc" viewBox="0 0 24 24"><image href="assets/icon-pengaju.svg" width="24" height="24"/></symbol>
+    <symbol id="i-megaphone" viewBox="0 0 24 24"><image href="assets/0c6de.svg" width="24" height="24"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><image href="assets/bce34.svg" width="24" height="24"/></symbol>
+
+    <!-- Ikon modal -->
+    <symbol id="i-ok" viewBox="0 0 24 24"><image href="assets/6f0ef.svg" width="24" height="24"/></symbol>
+    <symbol id="i-warn" viewBox="0 0 24 24"><image href="assets/6bb5d.svg" width="24" height="24"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><image href="assets/47fa3.svg" width="24" height="24"/></symbol>
+
+    <!-- Ikon utilitas (tetap inline, sesuai Figma) -->
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></symbol>
+  </svg>
+
+  <div class="app" id="aplikasi">
+    <aside class="sidebar" id="sidebar">
+      <div class="merek"><svg class="logo"><use href="#logo"/></svg><span>InfoKom</span></div>
+      <nav id="menu"></nav>
+    </aside>
+
+    <div class="kolom-kanan">
+
+      <header class="topbar">
+        <h2 class="judul-app">Request Desain · InfoKom HMDTIF</h2>
+
+        <div class="topbar-kanan">
+          <div class="bel-wrap">
+            <button type="button" class="bel" id="btn-bel" aria-label="Notifikasi">
+              <svg class="ic"><use href="#i-bell"/></svg>
+              <span class="lencana" id="lencana" hidden></span>
+            </button>
+            <div class="dropdown" id="dropdown-notif" hidden></div>
+          </div>
+
+          <button type="button" class="chip-user" id="btn-profil">
+            <span class="info-user" id="info-user"></span>
+            <span class="avatar"><svg class="ic"><use href="#i-user"/></svg></span>
+          </button>
+        </div>
+      </header>
+
+      <section class="view" id="v-status">
+        <div class="konten">
+          <div class="kartu">
+            <h2>Status &amp; Riwayat Publikasi</h2>
+            <div class="stepper" id="stepper"></div>
+            <h2 class="jarak-atas">Daftar Pengajuan Saya</h2>
+            <div id="tabel-status"></div>
+          </div>
+
+          <div class="kartu">
+            <h2>Detail Pengajuan</h2>
+            <div id="detail-status"></div>
+            <hr>
+            <h2>Riwayat Proses</h2>
+            <ul class="riwayat" id="riwayat"></ul>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- ============================================================
+       MODAL / POP-UP
+       ============================================================ -->
+
+  <!-- Humas: Tolak -->
+  <div class="modal" id="modal-tolak">
+    <div class="dialog">
+      <div class="judul-modal">
+        <h2><svg class="ic merah"><use href="#i-warn"/></svg> Tolak Pengajuan</h2>
+        <button type="button" class="btn-tutup" data-tutup aria-label="Tutup"><svg class="ic"><use href="#i-x"/></svg></button>
+      </div>
+      <div class="field">
+        <label for="alasan-tolak">Alasan Penolakan</label>
+        <textarea id="alasan-tolak" placeholder="Tulis alasan penolakan"></textarea>
+      </div>
+      <div class="dua-tombol">
+        <button type="button" class="btn btn-garis" data-tutup>Batal</button>
+        <button type="button" class="btn btn-utama" id="btn-konfirmasi-tolak" disabled>Tolak</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Humas: Terima & Tugaskan PIC -->
+  <div class="modal" id="modal-terima">
+    <div class="dialog">
+      <div class="judul-modal">
+        <h2><svg class="ic hijau"><use href="#i-ok"/></svg> Terima &amp; Tugaskan PIC MedKraf</h2>
+        <button type="button" class="btn-tutup" data-tutup aria-label="Tutup"><svg class="ic"><use href="#i-x"/></svg></button>
+      </div>
+      <div class="field">
+        <label for="pilih-pic">Pilih PIC MedKraf</label>
+        <select id="pilih-pic"></select>
+      </div>
+      <div class="dua-tombol">
+        <button type="button" class="btn btn-garis" data-tutup>Batal</button>
+        <button type="button" class="btn btn-utama" id="btn-konfirmasi-terima" disabled>Tugaskan</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Humas: Revisi bahasa ke MedKraf -->
+  <div class="modal" id="modal-revisi-bahasa">
+    <div class="dialog">
+      <div class="judul-modal">
+        <h2><svg class="ic merah"><use href="#i-warn"/></svg> Ajukan Revisi ke MedKraf</h2>
+        <button type="button" class="btn-tutup" data-tutup aria-label="Tutup"><svg class="ic"><use href="#i-x"/></svg></button>
+      </div>
+      <div class="field">
+        <label for="catatan-bahasa">Catatan Revisi</label>
+        <textarea id="catatan-bahasa" placeholder="Tulis bagian bahasa yang perlu diperbaiki"></textarea>
+      </div>
+      <div class="dua-tombol">
+        <button type="button" class="btn btn-garis" data-tutup>Batal</button>
+        <button type="button" class="btn btn-utama" id="btn-konfirmasi-revisi-bahasa" disabled>Kirim</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Humas: Tandai sudah diunggah -->
+  <div class="modal" id="modal-unggah">
+    <div class="dialog">
+      <div class="judul-modal">
+        <h2><svg class="ic biru"><use href="#i-upload"/></svg> Tandai Sudah Diunggah</h2>
+        <button type="button" class="btn-tutup" data-tutup aria-label="Tutup"><svg class="ic"><use href="#i-x"/></svg></button>
+      </div>
+      <div class="field">
+        <label for="link-unggahan">Link Unggahan</label>
+        <input type="text" id="link-unggahan" placeholder="https://instagram.com/p/...">
+      </div>
+      <div class="dua-tombol">
+        <button type="button" class="btn btn-garis" data-tutup>Batal</button>
+        <button type="button" class="btn btn-utama" id="btn-konfirmasi-unggah" disabled>Selesai</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pengaju: Ajukan revisi -->
+  <div class="modal" id="modal-revisi">
+    <div class="dialog">
+      <div class="judul-modal">
+        <h2><svg class="ic merah"><use href="#i-warn"/></svg> Ajukan Revisi</h2>
+        <button type="button" class="btn-tutup" data-tutup aria-label="Tutup"><svg class="ic"><use href="#i-x"/></svg></button>
+      </div>
+      <div class="field">
+        <label for="catatan-revisi">Deskripsi Revisi</label>
+        <textarea id="catatan-revisi" placeholder="Tulis semua masukan revisi dalam satu catatan."></textarea>
+        <small class="bantuan">Revisi hanya dapat diajukan 1x dan hasilnya langsung diunggah tanpa tinjauan ulang.</small>
+      </div>
+      <div class="dua-tombol">
+        <button type="button" class="btn btn-garis" data-tutup>Batal</button>
+        <button type="button" class="btn btn-utama" id="btn-konfirmasi-revisi" disabled>Ajukan</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pengaju: Setujui -->
+  <div class="modal" id="modal-setujui">
+    <div class="dialog">
+      <div class="judul-modal">
+        <h2><svg class="ic hijau"><use href="#i-ok"/></svg> Setujui Desain</h2>
+        <button type="button" class="btn-tutup" data-tutup aria-label="Tutup"><svg class="ic"><use href="#i-x"/></svg></button>
+      </div>
+      <p class="isi-modal">Apakah Anda yakin menyetujui desain ini? Status menjadi “Siap Unggah” dan konten akan diunggah oleh Humas.</p>
+      <div class="dua-tombol">
+        <button type="button" class="btn btn-garis" data-tutup>Batal</button>
+        <button type="button" class="btn btn-utama" id="btn-konfirmasi-setujui">Ya, Setujui</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pesan singkat -->
+  <div class="toast" id="toast" hidden></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/status.js"></script>
+</body>
+</html>
