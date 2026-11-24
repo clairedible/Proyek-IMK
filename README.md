@@ -48,11 +48,13 @@ location.reload();
 
 ## Cara menjalankan
 
-Buka `index.html` dengan Live Server di VS Code, atau:
+Buka `index.html` dengan Live Server di VS Code, atau lebih disarankan:
 ```sh
-python3 -m http.server 8445
+python3 serve.py
 ```
 lalu buka http://localhost:8445
+
+`serve.py` mengirim header `Cache-Control: no-store`, jadi **setiap kali kamu menyimpan perubahan di VS Code, cukup refresh browser (Cmd/Ctrl+R)** — tidak perlu hard refresh.
 
 Mode demo: email bebas yang mengandung `@`, kata sandi apa saja (atau klik "Masuk dengan Google").
 
