@@ -298,7 +298,6 @@ function muat() {
   } catch (e) {}
 }
 
-/* ---------- Masuk / pindah halaman ---------- */
 function masuk(peran) {
   peranAktif = peran;
   peranLogin = peran;

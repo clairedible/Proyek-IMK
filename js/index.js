@@ -1,4 +1,4 @@
-/* index.js — halaman Pilih Peran */
+// pilih peran
 document.querySelectorAll("[data-peran]").forEach(function (kartu) {
   kartu.addEventListener("click", function () {
     peranLogin = kartu.dataset.peran;
