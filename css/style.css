@@ -1,13 +1,3 @@
-/* ==========================================================
-   STYLE.CSS - Request Desain · InfoKom HMDTIF (Versi Website)
-   Desain: Hi-Fi desktop 1440px dari Figma.
-   Responsif untuk ukuran website saja:
-     - Desktop lebar  : lebih dari 1100px  (2 kolom + sidebar)
-     - Laptop/Tablet  : 768px - 1100px     (1 kolom + sidebar lebih kecil)
-   (Tampilan HP tidak dibuat.)
-   ========================================================== */
-
-/* ---------- 1. Variabel warna (dari design system Figma) ---------- */
 :root {
   --biru-50: #e6f1fc;
   --biru-100: #b0d4f5;
@@ -43,7 +33,7 @@ body {
   font-family: "Poppins", Arial, sans-serif;
   font-size: 14px;
   color: var(--teks);
-  min-width: 768px; /* tampilan HP tidak didukung */
+  min-width: 768px; 
   min-height: 100vh;
   /* Latar biru dengan sapuan putih di pojok (seperti di Figma) */
   background:
@@ -79,9 +69,6 @@ button { font-family: inherit; }
   color: var(--biru-600);
 }
 
-/* ==========================================================
-   4. HALAMAN LOGIN (pilih peran & form)
-   ========================================================== */
 .halaman-login {
   min-height: 100vh;
   display: flex;
@@ -104,7 +91,10 @@ button { font-family: inherit; }
 .kartu-login h1 { margin: 24px 0 8px; }
 .kartu-login .sub { margin-bottom: 20px; }
 
-.pilihan-peran { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.pilihan-peran { 
+  display: grid; 
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 14px; }
 
 .kartu-peran {
   display: flex;
@@ -122,9 +112,15 @@ button { font-family: inherit; }
   transition: transform 0.15s, border-color 0.15s;
 }
 
-.kartu-peran:hover { transform: translateY(-3px); border-color: currentColor; }
-.kartu-peran small { font-size: 11.5px; }
-.kartu-peran em { font-style: normal; font-size: 12px; margin-top: 4px; }
+.kartu-peran:hover { 
+  transform: translateY(-3px); 
+  border-color: currentColor; }
+.kartu-peran small { 
+  font-size: 11.5px; }
+.kartu-peran em { 
+  font-style: normal; 
+  font-size: 12px; 
+  margin-top: 4px; }
 
 .lingkaran .ic { width: 28px; height: 28px; }
 

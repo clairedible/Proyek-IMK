@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Request Desain · InfoKom HMDTIF</title>
+    <link rel="icon" href="assets/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css?v=3" />
+  </head>
+  <body data-halaman="login">
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <symbol id="logo" viewBox="0 0 56 51">
+        <image href="assets/69146.svg" width="56" height="51" />
+      </symbol>
+
+      <symbol id="i-phone" viewBox="0 0 24 24">
+        <image href="assets/54fbe.svg" width="24" height="24" />
+      </symbol>
+      <symbol id="i-clip" viewBox="0 0 24 24">
+        <image href="assets/e0886.svg" width="24" height="24" />
+      </symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24">
+        <image href="assets/e6d93.svg" width="24" height="24" />
+      </symbol>
+      <symbol id="i-tasks" viewBox="0 0 24 24">
+        <image href="assets/5f177.svg" width="24" height="24" />
+      </symbol>
+      <symbol id="i-bell" viewBox="0 0 24 24">
+        <image href="assets/1b2ef.svg" width="24" height="24" />
+      </symbol>
+      <symbol id="i-user" viewBox="0 0 24 24">
+        <image href="assets/fa01b.svg" width="24" height="24" />
+      </symbol>
+
+      <symbol id="i-doc" viewBox="0 0 24 24">
+        <image href="assets/icon-pengaju.svg" width="24" height="24" />
+      </symbol>
+      <symbol id="i-megaphone" viewBox="0 0 24 24">
+        <image href="assets/0c6de.svg" width="24" height="24" />
+      </symbol>
+      <symbol id="i-image" viewBox="0 0 24 24">
+        <image href="assets/bce34.svg" width="24" height="24" />
+      </symbol>
+
+      <symbol id="i-ok" viewBox="0 0 24 24">
+        <image href="assets/6f0ef.svg" width="24" height="24" />
+      </symbol>
+      <symbol id="i-warn" viewBox="0 0 24 24">
+        <image href="assets/6bb5d.svg" width="24" height="24" />
+      </symbol>
+      <symbol id="i-x" viewBox="0 0 24 24">
+        <image href="assets/47fa3.svg" width="24" height="24" />
+      </symbol>
+
+      <symbol
+        id="i-menu"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M4 6h16M4 12h16M4 18h16" />
+      </symbol>
+      <symbol
+        id="i-ext"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+        />
+      </symbol>
+      <symbol
+        id="i-upload"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"
+        />
+      </symbol>
+    </svg>
+
+    <main class="halaman-login" id="halaman-login">
+      <form class="kartu-login" id="form-login" novalidate>
+        <div class="merek">
+          <svg class="logo"><use href="#logo" /></svg><span>InfoKom</span>
+        </div>
+        <h1 id="judul-login">Masuk sebagai Pengaju</h1>
+        <p class="sub">Masukkan email dan kata sandi untuk melanjutkan.</p>
+
+        <div class="field">
+          <label for="login-email">Email</label>
+          <input
+            type="email"
+            id="login-email"
+            placeholder="Masukkan email Anda"
+            autocomplete="off"
+          />
+        </div>
+        <div class="field">
+          <label for="login-sandi">Kata sandi</label>
+          <input
+            type="password"
+            id="login-sandi"
+            placeholder="Masukkan kata sandi Anda"
+            autocomplete="off"
+          />
+          <small class="pesan-error" id="error-login" hidden
+            >⚠ Isi email yang valid dan kata sandi.</small
+          >
+        </div>
+
+        <button type="button" class="tautan kanan-teks" id="btn-lupa">
+          Lupa kata sandi?
+        </button>
+        <button type="submit" class="btn btn-utama penuh">Masuk</button>
+
+        <div class="atau"><span>atau</span></div>
+        <button type="button" class="btn btn-garis penuh" id="btn-google">
+          Masuk dengan Google
+        </button>
+        <button type="button" class="tautan tengah" id="btn-ganti-peran">
+          ← Ganti peran
+        </button>
+      </form>
+    </main>
+
+    <div class="toast" id="toast" hidden></div>
+    <script src="js/data.js?v=3"></script>
+    <script src="js/core.js?v=3"></script>
+    <script src="js/login.js?v=3"></script>
+  </body>
+</html>

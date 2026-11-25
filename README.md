@@ -1,37 +1,70 @@
-# Request Desain · InfoKom HMDTIF (Versi Website)
+# Request Desain · InfoKom HMDTIF — VERSI 2 (V2)
 
-Prototype website hi-fi (desktop 1440px) dari desain Figma, dibuat dengan HTML, CSS, dan JavaScript biasa.
-Ada 3 tampilan sesuai peran: **Pengaju (requester)**, **Humas**, dan **MedKraf (tim desain InfoKom)**.
+Branch **`V2`** adalah versi terstruktur. Branch `main` tetap berisi versi 1 (file HTML & JS terpusat) dan tidak diubah.
+
+## Perubahan di V2
+
+Sebelum (V1):
+```
+index.html        -> semua halaman jadi satu
+js/script.js      -> semua logika jadi satu
+```
+
+Sekarang (V2):
+```
+index.html        -> halaman Pilih Peran
+login.html        -> halaman Login
+ajukan.html       -> form Ajukan Permintaan
+tinjau.html       -> Tinjau & Revisi
+status.html       -> Status & Riwayat
+humas.html        -> Daftar & Detail Pengajuan (Humas)
+tugas.html        -> Tugas Saya (MedKraf)
+profil.html       -> Profil
+
+css/style.css     -> tampilan (sama seperti V1)
+js/
+  data.js         -> data & pengaturan (dipakai semua halaman)
+  core.js         -> state, auth, sidebar, navigasi, notifikasi, modal, event global
+  index.js        -> logika halaman Pilih Peran
+  login.js        -> logika halaman Login
+  ajukan.js       -> logika halaman Ajukan
+  tinjau.js       -> logika halaman Tinjau
+  status.js       -> logika halaman Status
+  humas.js        -> logika halaman Humas
+  tugas.js        -> logika halaman MedKraf
+  profil.js       -> logika halaman Profil
+assets/           -> ikon & gambar asli Figma
+```
+
+## Data lintas halaman
+
+Karena tiap halaman adalah file HTML terpisah, state aplikasi (daftar request, notifikasi, peran aktif, dll.) disimpan di `localStorage` dengan kunci `imk_v2_state`.
+
+Untuk mengulang dari data awal:
+```js
+localStorage.removeItem("imk_v2_state");
+location.reload();
+```
 
 ## Cara menjalankan
-Buka `index.html` di browser (klik dua kali, atau pakai Live Server di VS Code).
-Mode demo: di halaman login, isi email (harus ada tanda @) dan kata sandi apa saja, atau klik "Masuk dengan Google".
 
-## Struktur folder
+Buka `index.html` dengan Live Server di VS Code, atau lebih disarankan:
+```sh
+python3 serve.py
 ```
-miaw-website/
-├── index.html      -> kerangka: login, sidebar, 6 halaman, 6 modal
-├── css/style.css   -> tampilan + responsif (desktop & tablet)
-└── js/
-    ├── data.js     -> data contoh & pengaturan peran
-    └── script.js   -> logika: login, menu, tampilan, aksi, notifikasi
+lalu buka http://localhost:8445
+
+`serve.py` mengirim header `Cache-Control: no-store`, jadi **setiap kali kamu menyimpan perubahan di VS Code, cukup refresh browser (Cmd/Ctrl+R)** — tidak perlu hard refresh.
+
+Mode demo: email bebas yang mengandung `@`, kata sandi apa saja (atau klik "Masuk dengan Google").
+
+## Cara ambil V2
+
+```sh
+git fetch origin V2
+git checkout V2
 ```
-
-## Halaman per peran
-| Peran   | Menu | Yang bisa dilakukan |
-|---------|------|---------------------|
-| Pengaju | Ajukan Permintaan, Tinjau & Revisi, Status & Riwayat | Kirim pengajuan, tinjau draf, revisi (kuota 1x), setujui, lihat progres 8 tahap |
-| Humas   | Daftar Pengajuan | Tolak/Terima + tugaskan PIC, cek bahasa (revisi / teruskan), unggah & tandai selesai |
-| MedKraf | Tugas Saya | Lihat tugas & catatan revisi, serahkan hasil desain |
-
-Semua peran: notifikasi (lonceng) dan halaman Profil (klik nama di pojok kanan atas).
 
 ## Alur status
+
 Pengecekan Form → Proses Desain → Pengecekan Bahasa ⇄ Revisi Bahasa → Pengecekan Hasil → (Revisi Desain) → Siap Unggah → Selesai
-
-## Responsif
-- Layar lebar (>1100px): sidebar + 2 kolom
-- Laptop/tablet (768-1100px): isi jadi 1 kolom; di bawah 900px sidebar hanya ikon
-- Tampilan HP tidak dibuat.
-
-Data hanya disimpan di memori (hilang saat refresh) karena belum ada database.
